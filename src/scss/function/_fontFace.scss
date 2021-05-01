@@ -1,0 +1,52 @@
+@mixin font-face(
+  $family,
+  $path,
+  $weight: normal,
+  $style: normal,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($family, " ", "_"),
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype",
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + "." + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($family);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+/*
+Usage
+第1引数にフォント名(font-family)を指定
+第2引数にフォントファイルへの相対パスを指定
+第3引数に文字の太さ(font-weight)を指定
+第4引数に書体(font-style)を指定
+第5引数に対応するフォントファイルの拡張子を指定
+
+@include font-face('Lora', 'fonts/Lora', 400, italic, ttf);
+@include font-face('Samplinal', 'fonts/Samplinal', bold, normal, eot woff2 woff);
+*/

@@ -1,0 +1,11 @@
+//初期設定
+@import "variables/**";
+@import "function/**";
+// FLOCCSベース
+@import "foundation/_reset.scss";
+@import "foundation/_base.scss";
+@import "foundation/**";
+@import "layout/**";
+@import "project/**";
+@import "component/**";
+@import "utility/**";

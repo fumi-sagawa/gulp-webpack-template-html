@@ -1,0 +1,6 @@
+$layout-width-inner: 1024px;
+$breakpoints: (
+  "sp": "screen and (min-width: 767px)",
+  "tab": "screen and (min-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (min-width: #{$layout-width-inner})",
+);
