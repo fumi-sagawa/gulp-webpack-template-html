@@ -8,19 +8,19 @@ gulp・webpack・babel のプロジェクトテンプレート
 
 ### 概要
 
-gulp ベースの scss,pug,js バンドルテンプレートです。
+gulp ベースの scss,js バンドルテンプレートです。
 src フォルダにて作業すると dist にコンパイル後のファイルが格納されます。
 scss フォルダは FLOCCS ベースとなっています。
 
 ### 機能一覧
 
 - scss->css
-- Pug->HTML
+- html
   - `src= hogehoge/img` を`src="./img/に変更`(pug の画像参照ルート解決のため)
 - 画像圧縮
 - js バンドル
 - object-fit イメージ prefix,polyfill 付与
-  その他 pacake.json 参照
+- その他 pacake.json 参照
 
 ### 参考文献
 
